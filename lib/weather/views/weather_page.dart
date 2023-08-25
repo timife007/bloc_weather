@@ -48,6 +48,9 @@ class _WeatherViewState extends State<WeatherView> {
         ],
       ),
       body: Center(
+        //BlocConsumer is used when you want to both rebuild the UI and perform 
+        //side effects based on state changes. It's the combo of BlocListener and 
+        //BlocBuilder
         child: BlocConsumer<WeatherCubit, WeatherState>(
           listener: (context, state) {
             if (state.status.isSuccess) {

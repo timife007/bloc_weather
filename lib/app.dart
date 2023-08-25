@@ -16,6 +16,7 @@ class WeatherApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider.value(
       value: _weatherRepository,
+      ///BlocProvider creates and manages the lifecycle of the BloC
       child: BlocProvider(
         create: (_) => ThemeCubit(),
         child: const WeatherAppView(),
@@ -30,6 +31,7 @@ class WeatherAppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    ///Can't use the BlocBuilder without the corresponding BlocProvider.
     return BlocBuilder<ThemeCubit, Color>(
       builder: (context, color) {
         return MaterialApp(
